@@ -17,7 +17,7 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/api/Category")
+@RequestMapping("/api/solution")
 public class SolutionController {
     @Autowired
     SolutionService service;

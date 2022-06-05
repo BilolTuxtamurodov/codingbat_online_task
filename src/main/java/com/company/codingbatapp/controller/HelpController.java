@@ -17,25 +17,25 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/api/Category")
+@RequestMapping("/api/help")
 public class HelpController {
     @Autowired
     HelpService service;
 
-    @GetMapping
+    @GetMapping("")
     public HttpEntity<?> getAll() {
 
         return ResponseEntity.ok(service.getAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public HttpEntity<?> getAll(@PathVariable Integer id) {
 
         return ResponseEntity.ok(service.getById(id));
     }
 
 
-    @PostMapping
+    @PostMapping("/register")
     public HttpEntity<?> register(@Valid @RequestBody Help help) {
         ApiResponse apiResponse = service.add(help);
         return ResponseEntity.status(apiResponse.isSuccess() ? HttpStatus.CREATED : HttpStatus.CONFLICT).body(apiResponse);
